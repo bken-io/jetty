@@ -1,0 +1,58 @@
+{
+  "name": "jetty",
+  "version": "0.0.1",
+  "description": "Desktop app for processing video",
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bken-io/jetty.git"
+  },
+  "scripts": {
+    "dev": "parcel ./src/public/index.html -d build/",
+    "start-dev": "cross-env ELECTRON_START_URL=http://localhost:1234 electron .",
+    "start": "electron .",
+    "build": "parcel build ./src/public/index.html -d build/ --public-url ./",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder --publish never",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "build": {
+    "appId": "com.bken.jetty",
+    "files": [
+      "main.js",
+      "build/*"
+    ],
+    "win": {
+      "publish": [
+        "github"
+      ],
+      "icon": "./src/public/favicon.ico"
+    }
+  },
+  "contributors": [
+    "Brendan Kennedy <brenwken@gmail.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "axios": "^0.21.0",
+    "cross-env": "^7.0.2",
+    "electron-updater": "^4.3.5",
+    "fs-extra": "^9.0.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
+    "styled-components": "^5.2.1",
+    "unzipper": "^0.10.11"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.5",
+    "electron": "^10.1.5",
+    "electron-builder": "^22.9.1",
+    "electron-reload": "^1.5.0",
+    "parcel-bundler": "^1.12.4"
+  }
+}
